@@ -1,0 +1,962 @@
+DevOps
+-------
+DevOps - Development + Operations 
+It is a Methodology (Similar like Waterfall, Agile)
+
+DevOps will provide us an Automated process for,
+ Continous Integration
+ Continous Delivery
+ Continous Deployment 
+ 
+To get rid of Manual process in any project, we use DevOps
+
+How we get rid of this manual process? 
+By using some DevOps Tools - we write some code for pipeline and create an automation approach
+
+What will DevOps provide us? 
+	Automation 
+	Allow us to use Microservices Architecture (Orchestration Tools)
+			---- Orchestration Tools - Ex: Ansible, EKS (K8S)
+	Use of CI pipelines instead of standard assembly lines
+	Security 
+	Server Less Technology (Tools based)
+
+DevOps Architecture: 
+Dev -> Plan - Code - Build - Test 
+  +
+Ops -> Verify/Release - Deploy - Operate - Monitor
+
+We don't use all the Tools in general (But there would be maximum used Tools like Jenkins)
+For For CI/CD - Jenkins 
+For Code - Source Code Management -  GitHub
+For Build - Maven (Java), Gradle (IOS), MS Build (.Net) 
+For Orchestration/Configuration - Ansible
+For Testing - Junit, Selenium
+For Code Coverage - SonarCube
+For Monitor - Nagios, Splunk, AWSCloudWatch
+For Containireization - Docker, K8S
+
+Flow of DevOps: 
+Continous Development
+Continous Integration
+Continous Deployment 
+Continous Testing 
+Continous Monitoring
+
+Continous Development 
+	Source Code Management 
+		For .Net - Visual Studio 
+		For Java - Eclipse 
+
+		Tools ---- GITHUB
+				   BitBucket
+				   AWSCodeCommit
+				   Azure Repos 
+
+Continous Integration
+	We integrate the Development tools to Jenkins by creating pipelines
+
+Tools ---- Jenkins, Bamboo
+		Whenever we use Jenkins, It undergoes both CI and CD by creating an Automated Process
+
+Continous Deployment 
+ Docker like Tools used 
+ 
+Continous Testing 
+ SonarCube Used
+
+Continous Monitoring
+ Nagios or Splunk tools are used
+==============================================
+AWS - EC2 - Elastic Cloud Compute  
+	- S3 - Simple Storage Service
+	
+LINUX:  To connect we use - Putty or MobaXTerm 
+Why we use? 
+No AntiVirus needed 
+No Reboots needed
+CLI interface 
+
+Linux - Lot of Distributions availables 
+Ubuntu
+Debian 
+Redhat - RHEL
+CentOS
+Fedora
+Gentoo
+
+Ways to connect to Linux Server (SSH - Secure Shell Connection) 
+ Via 3rd Party Tools like - Git, Putty, MobaXTerm
+
+
+2 types of Operating system:
+Client Side    				Server Side
+Windows						Windows 2016/2019
+Ubuntu 						Linux
+MAC 						MAC Servers	
+
+
+6 stages of Booting process: 
+BIOS  - Basic Input Output System
+MBR - /dev/hda, /dev/sda - Drives would be created 
+GRUB 
+Kernel 
+Init
+RunLevel Programs - 0 and 5 levels are used 
+
+
+
+
+
+Commands: 
+uname -a 
+Provide user the name of the Server 
+
+Putty - Putty supports only .ppk (Putty Private Key)
+Key is generated from PuttyGen application
+-- Convert the .pem - .ppk
+
+sudo apt-get update
+To update the Version of Linux that is installed 
+
+su
+Switch User 
+
+root = Administrator
+
+sudo su - === Takes us to root user home directory 
+
+cd ~ === Takes us to home directory 
+
+pwd === present working directory 
+
+cd / === Takes us to root folder 
+
+ls === List Files 
+
+ls -l ==== Long list files with lot of information 
+
+ls -la or ll === Show all files including hidden files 
+
+cd /name or path of dir/ === Change to the directory 
+
+cd - === go back to previous directory 
+
+clear or control+l === clear the screen 
+
+cd .. ==== go back to previous directory 
+
+date === Display today's date 
+
+free === check the free memory of the server 
+
+who am i ==== Show current logged in user info 
+
+cal === shows current month calendar
+	cal 2021 - Shows all the calendar of 2021
+	cal -3 - 3 months calendar 
+	cal 08 2021 - Shows August calendar of 2021
+	
+mkdir === create a new directory -- Similar to Folder 
+
+touch === Create empty files
+
+cp === copy command --- copies the file 
+
+mv === move command -- Similar to Cut	
+
+rm === remove command 
+
+rm -r ===== remove recurisively folders and its sub folder files 
+
+top === Top most memory usage would be displayed 
+
+df -h === To check if Diskfree/Diskspace available 
+
+du -h === Disk usage 
+
+kill === Kill any process
+
+cat /etc/passwd/ - Shows list of all users in the Linux Server 
+
+cat /etc/group/ - Shows list of all groups in the Linux Server 
+	
+adduser === To add a new user to server 
+		Whenever a new user is created, A home directory would be created 
+Whenever we create a user automatically a group is created 
+
+SUDO privilages: 
+Sudoers file (Sudo permissions are given from this section)
+
+visudo === Sudoers file would be opened 
+
+systemctl restart sshd.service (To reflect the sudoers changes)
+
+ssh-keygen == Generates a ssh key pair 
+	In ssh folder - we see private and public key 
+
+Public key - To be added onto a (authorized_keys) file on the server in .ssh folder
+Private Key - Using this key we connect to the above server where we added the Public key 
+
+From client upon adding the key, To connect to the server as a User: 
+ssh -i "id_rsa" username@hostip
+
+
+Different type of editors in Linux: 
+VI 
+Sublime 
+Atom 
+Nano
+
+echo "Add your text" > Path of FileName
+	Entered text added into the File, But it overwrites the text everytime we do it 
+
+echo "Add your text" >> Path of FileName
+	Entered text would be added to exiting text in the File
+
+nano filename 
+	editor opens (Make changes Cntrl+o, Cntrl+x)
+
+vi filename --- view and edit mode (Hit I - add your text -> To save -> esc :wq+enter)
+			--- to exit from the vi mode (use q!)
+
+vi editor - esc
+:wq! ==== Write and quit
+:q! ===== Quit 
+:%d === Remove all the lines 
+ 
+We Mostly use VI editor as it has lot of easy accesible functionality
+
+File Permissions: 
+U - User 
+G - Group 
+O - Other 
+Owner 
+
+  User  Group  Other 
+- rw-   r--    r--
+
+First Value:  
+- file 
+d directory 
+l link file (hard and soft link files)
+
+r - Read    == 4
+w - Write   == 2
+x - Execute == 1
+
+chmod u+x g-w o+r nameofthefile
+chmod 644 nameoffile
+
+664 - Default Number (Umass number)
+
+to run executable .sh file 
+./ name.sh 
+
+Directory Permissions: 
+  User  Group  Other 
+d rw-   r--    r--
+
+First Value - d for Directory 
+
+By Default permissions - 775 
+
+chmod -r 777 nameofthedirectory
+-r -- Recursive 
+
+Change any owner of file 
+chown ownername:groupname filename 
+
+Questions: 
+Change owner - Do we do this Regularly? --- Senior guidance 
+./name.sh isn't running (bash name.sh) --- Chmod + x 
+Is there a default chmod for git files ? 
+644
+================================================
+AWS: Amazon Web Services 
+
+EC2 Instances
+  Elastic Cloud Compute 
+
+Regions 
+	Availability Zones (Data Centers)
+
+With in region we will have 2 Az's 
+
+Region - It is a Geographical location 
+Availability Zones - Physical Data Center in the Region 
+
+EC2 - Used to generate Virtual Servers 	
+	- Major Service in AWS
+	
+7 Stages in launching a Instance: 
+1. Choose AMI 
+	- Amazon machine image - Image ID are unique 
+2. Instance Type - (t2,t3,c3 etc.,)
+3. Configure VPC 
+4. Storage - 8 Gb min for Linux
+		- Volume Type (IOPS - Input output per secs)
+		- gp2 for small scale, io1 for large scale application
+5. Tags - Used during the automation 
+6. Configure Security group
+7. Review and Launch 
+
+Launched instance can be connected by Putty or MobaXterm or git bash
+
+EC2 Types: 
+3 types
+	1. Dedicated
+		- Regularly used VM's
+	2. Reserved
+		- Cheap 
+		- Reserve ahead based on usage
+	3. Spot 
+		- Very Cheap 
+		- Managed by Amazon
+
+Questions: 
+Production uses which Instances (Dedi(On demand)/Reserved/Spot(Dev/QA))? ---- Based on discussion of teams 
+CPU configurations in Prod? ---- Infra team 
+===================================================
+Virtual Private Cloud: 
+ 	IpV4 - 32 bits 
+	IpV6 - 128 bits 
+
+OSI Model: 
+Application 
+Presentation 
+Session 
+Transport 
+Network 
+Data Link (Connection via subnets)
+Physical (macid)
+
+If we create on VPC - it is available on all the available zones
+
+VPC is used for Security purposes, for no breach to happen 
+
+5 Componets in VPC cloud: 
+	VPC -- VPC for Region 
+	Subnets  -- Public Subnet, Private Subnet 
+	Route table -- Route polices 
+	Internet gateway 
+	Security group -- For whiteliting of IP's
+	
+1. Create VPC with CIDR block address, Enable DNS Hostname 
+2. Create 2 subnets with CIDR Block Address
+Enable Modify AutoAssign IP  (To get Pulic IP)
+3. Create Interent gateway and attach to the VPC
+4. Create RouteTable, add subnet to RouteTable and edit route for internet 
+5. Create Security group and edit inbound rule 
+6. Launch EC2 Instance on this VPC 
+
+Private and Public Subnet - Usage? (Private for Code/DB connections - Public for Hosting right?)
+Whitelisting to be done daily or VPN static Address going to set? --- 3rd party tools 
+Route Table polices - Who are going to give these? ---- Based on Teams setup this 
+Range of IpV4 decided by ? ------------ Network team 
+=======================================================
+IAM -- Identity Access Management 
+Region less service 
+
+To access AWS from org, They create a IAM user for you 
+
+2 Types of Access: 
+GUI Console (Web Login)
+CLI Access (Programmatic Access)
+
+iam-user@rootaccountno
+
+Users section - Create Users 
+Groups - Assign a User to a Group 
+
+
+CLI - Download the AWSCLI.msi file and run 
+AccessKey and Secret Access Key
+
+aws configure -- To setup a User 
+
+
+IAM Roles and IAM Policies
+
+Polices - User level privileages given 
+Role - Service level privilages given
+
+apt-get install phyton3 
+apt-get install phyton3-pip
+
+Why PIP - AWS CLI is phyton dependency, so we used pip 
+
+pip3 install awscli
+
+botocore ---- It is a Depenedency - Library file to run few lamda functions 
+
+
+Questions: 
+How we use in realtime CLI or Console like ? 
+Terraform - via CLI  
+=============================
+S3 - Simple Storage Service 
+Region less service (S3, IAM, Cloud Front) 
+
+Scalable, Secure, Performance 
+First Service 
+Data stored in Buckets as Objects
+Any data can be stored 
+
+From any account we can create 100 buckets - First 5GB of data in each bucket is free 
+
+Only the region information would be shown, not the Availability Zone for the Files which are uploaded 
+
+SSE-KMS : Key Managment Service 
+
+SNS - Simple Notification Service 
+	This service is used to get us notified when ever something chnaged on the S3 - i.e. by creating a SNSforS3 event notification 
+
+Transfer Accelartion - This is used to increase the Transfer rate of Data between S3 to out 
+
+Static Website Hosting: 
+Static website which doesn't change everytime 
+
+Amazon Pricing: 
+Storage Classes
+	S3 Standard
+	S3 Intelligent-Tiering 
+	S3 Standard-IA
+	S3 OneZone-IA
+	S3 Glacier
+	
+S3 lifecycle policies - To set policies for the files in the bucket to move into another storage class 
+Minimum of 30 days required for moving the files to another storage class 
+
+We can't easily delete the files from Glacier files (So make sure if you are using this)	
+
+Bucket Permissions: 
+Add few policies based on the need in the Bucket Policy 
+
+
+Questions: 
+Is there any specific rules that company/org set up for S3 ? ----- Done by Us 
+Recovery process for disaster ---- Script need to be written 
+Recovery of Objects ----- Contact Amazon 
+====================================================================
+Tools to be learned: 
+
+AWS - Cloud services 
+Linux - OS 
+Github - Source code management 
+git - Version control tool 
+Maven - Build tool 
+Tomcat - Web Hosting server 
+Jenkins - Automated pipelines created for CI/CD
+Ansible - Configuration/Orchestration tool 
+Docker - Deployment Tool 
+Sonarcube - Test the Deployment using some policies 
+Nexus - Artfactory Tool
+K8S - Supports Docker
+
+GitHub: 
+Remote Repository 
+Source code repository management tool 
+
+Two types of Repos: 
+Private
+	Only limited people can access the file 
+Public
+	Anyone can access the file 
+
+
+Forking: 
+Add others repos into our account
+
+===========================================================
+Git: 
+Distrubted Version control tool 
+
+local repo 
+remote repo 
+
+3 stages/phase in Git: 
+Working Area 
+Staging/Indexing Area 
+Local repo 
+
+sha code - based on commit a code would be generated
+ 
+GIT Commands:
+git --version - Shows version of Git
+git config --list 
+git config --global user.name ""
+git config --global user.email "" 
+git init - Initialize git (Creates a empty local repo) 
+	.git folder will be created 
+	config file would be created
+	Head file - Recent commit info found  
+git clone "Remote Repo URL" --- Local repo will be clone with Remote repo
+git status - Shows status of any unstaging/working area files available or not 
+git add . - Add all the files in staging area
+git restore --staged "Name of file" - File will be moved from staging area to working area 
+git commit -m "Message" - Commits files in staging area to local repo 
+	git commit -am "Message" - Add and Commit the file from staging to local repo 
+git remote add <name> <url> - To Configuring the Remote Repo 
+
+git push -u origin master - Add all the files from local repo to remote repo 
+git fetch -- Fetch all the files from remote repo to local repo 
+git pull - Pull all files from remote repo to working directory
+git log - shows the log of each commit 
+	git log --oneline - Shows log in one line 
+git show "Commit ID" - Shows all the information about the commit with previous commit, Which files added or Modified 
+git diff master origin/master --- To see the changes from local master to remote master  
+
+Pull - Fetch: 
+Fetch - Remote to Local 
+Pull - Remote to Working area 
+
+Merge - To bring files from working area to local 
+
+Push - local to Remote 
+
+
+git branch -a === List all the branches 
+git branch === Current branch
+git branch "branchname" == Create a new branch 
+git checkout "branchname" == Switch to branch 
+git branch -d "branchname" == Delete the branch 
+
+git diff praveen master == Show difference between praveen and master branches 
+git diff commitshacode1 commitshacode2 == Show difference between both commits 
+ 
+Head === Latest Commit for that particular branch
+
+
+Merging: Merge araises when there is conflicts between files which are modified 
+
+From specific Branch where we need to be merged from other branch -  provide below 
+git merge "branchname from which we want to bring files" 
+ Conflict araises when both files have changes within same line 
+ If not everything same then merge happens automatically 
+
+Ex: mahesh branch have file which are modified 
+we need to merge with master 
+go to master branch 
+git merge mahesh ==== Files from mahesh added to master 
+
+
+git push -u origin --all --- Pushes changes from all branches from local to remote 
+
+Accedentially pushed file - Revert: 
+git reset --soft HEAD^1
+=================================================================================
+Apache Maven: 
+We can't deploy thousands line of code without building 
+We use, Maven as Build tool to package the code 
+
+Why we use? 
+Software project management 
+
+Project objective model 
+pom.xml -- Based on this file we can manage the project 
+
+Maven and ANT supports JAVA related applications 
+MSBuild support .Net applications
+Gradle support IOS applications 
+
+Maven Life cycle: 
+Validate -- Check all the project information is available or not 
+Compile -- compile all the source code in project 
+Test -- Test the compiled source code with specific framework  
+Package  -- Take the compiled code and package it as a Distributable format (JAR)
+Verify -- Run any specific checks like "Pen Testing, Hardcoded value checks"
+Install -- Install the package on local repo 
+Deploy -- Copy the package to remote environments 
+
+Maven has 2 Repositories 
+- Local Repo 
+- Central Repo
+
+To Install Maven, We need JAVA to be installed on Machine 
+
+
+ON EC2 Instance: 
+Run Updates
+apt-get update -y
+
+Install JAVA
+apt install openjdk-8-jdk-headless
+
+To Uninstall JAVA
+sudo apt-get remove --auto-remove openjdk*
+
+java -version == Shows version of java 
+
+Setup java home path: 
+vi .bashrc 
+
+In the end, Type
+#JAVA_HOME
+JAVA_HOME = "Installed path"
+M2_HOME = "Provide path for Maven Install"
+PATH=$PATH:$JAVA_HOME/bin:$M2_HOME/bin
+
+
+$PATH == Any tools if installed - Pre defined path on the machine 
+
+Install TAR version of Marven on the Machine 
+
+To create tar file: 
+tar -xvcf "Name of the file"
+
+To Untar use: 
+tar -xvzf "Name of the file"
+
+
+mvn --version  == Display version of Maven installed 
+
+mvn goals: 
+mvn verify 
+mvn test
+mvn package === runs all the way down from verify, compile, test,package 
+ 
+mvn clean == delete the target folder  
+
+pom.xml 
+It is very important file - based on which the project would be build 
+
+	dependencies section is important as we need to update based on the need 
+==========================================================	
+Apache Tomcat: 
+Web Server - for hosting web based application 
+
+Nginx - Another hosting server (We can do load balancing)
+
+webrk files (.war files)
+
+*Java needed for Tomcat 
+
+download tomcat - Binary distrubutions - tar.gz
+
+TOMCAT Folder Structure: 
+bin - startup.sh etc., 
+conf - server.xml (To provide port), tomcat-user.xml
+webapp - Move our project webapp into here
+ 
+ 
+server.xml 
+Start/Default port - 8080 
+Shutdown port - 8005
+
+
+tomcat-users.xml
+Create Users for Tomcat from tomcat-users.xml file
+There would be few roles for users
+
+manager-gui - To connect from GUI
+manager-scripts - To connect from 3rd party CLI 
+manager-manage - To manage application
+
+
+In webapps - host-manager and Manager folders: 
+META-INF - context.xml (commet the value section <!""!>)
+Comment the Value == <!-- Value --> 
+
+
+from bin start startup.sh
+./startup.sh
+
+
+ps -ef | grep = "tomcat"
+ Process status 
+ 
+Questions: 
+Tomcat would be running as Service 
+Default port - 80 
+Host purpose - Different strategy following - Certificate setup (AWS cert manager + Route 53)
+=========================================
+Jenkins: 
+Java is needed 
+
+CI/CD tool 
+
+Build and Release tool 
+
+Freestyle jobs or pipelines created from Jenkins
+
+https://www.jenkins.io/doc/book/installing/linux/#debianubuntu
+
+Better way to install as Service
+
+--Install from war files 
+wget (URL)
+
+java -jar jenkins.war --httpPort=9000
+
+After install - Copy the initial admin password for Jenkins 
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+2 Types of pulgins: 
+Install Suggested plugins 
+Install Specific plugins
+
+Create a Admin User
+Admin 
+password$
+
+Master Jenkins - Dashboard would be shown 
+
+Slave ??
+
+Types of Job Types: 
+FreeStyle
+Pipeline
+Multi-confi 
+Folder 
+Multibranch Pipeline
+Organization Folder
+
+
+6 Sections in Jenkins: 
+General 
+Source Code Management
+Build Triggers 
+Build Environment 
+Post-Build Actions 
+
+Jenkins on RHEL or CentOS:
+1. sudo yum update 
+2. sudo yum install java-1.8.0-openjdk
+3. sudo wget -O /etc/yum.repos.d/jenkins.repo \https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+sudo yum upgrade
+sudo yum install epel-release java-11-openjdk-devel
+sudo yum install jenkins
+sudo systemctl daemon-reload
+
+service jenkins start 
+service jenkins status
+
+General: 
+Discard old build 
+	- Days to keep old build 
+	- Max builds to keep 
+
+Throttle Build -
+Wait and How many builds to run for every period selected 
+
+Questions: 
+who will decided this ? 
+
+Source Code Management: 
+git - Repo URL need to be provided 
+
+Build Triggers:
+Based on the time schduled - Run the Build 
+	Build after other projects build - UpStream 
+	Build Perodically - Corn values (* * * * *)
+	
+Build Environment: 
+In jenkins root folder - Workspace (Has all the Jobs which we create)
+	Add time stamp to console output - Add the time stamp to output 
+	
+*********Manage Jenkins - Configure System 
+# of executors 
+10 - 10 jobs can run at a time
+Jenkins Slave Memory: 512. Maximum number of Executor per slave: 1. Jenkins Executor CPUs: either 1 for small, 4 for medium, 20 for large. 
+Jenkins Executor Memory in MB: either 2000 for small, 8000 for medium, 40000 for large. 	
+
+Global tool configs: 
+Its like environmental plugins install for Jenkins
+
+Manage Plugins: 
+To install 3rd party plugins 
+
+.hpi - Hamera photo objects 
+
+Adavanced - Upload plugins 
+Upload and install option available 
+
+
+Users and Security: 
+By default by creating a User, He get Admin access to Jenkins unless restricted 
+
+Browser level restart - Add restart label in the end 
+
+Jenkins User Management: 
+Role based authorization Straegy 
+
+Manage and Assign roles: 
+global roles
+Item roles
+Node roles
+
+Roles 
+	ReadOnly 
+	JobBuild
+
+Questions: 
+What are the different types of Roles which we have ?  ---- 
+Who will decide what roles to be given in org ? 
+Declarative syntax vs Scripted syntax (We use declarative syntax as this will make the jenkins file and easy to manage)
+
+Master Slave Configurations: 
+Master - Built-In Node
+  Create a new server for Slave (Do ssh-keygen and Create keys to integrate one Server with another)
+  Run updates 
+  Install Java 
+  Create a user as jenkins-slave
+  Admin privilages for jenkins-slave (From visudo)
+  Make a home directory to install Jenkins - slave-01-home-dir
+  Create a KeyGen and try connecting to another machine 
+  Install Jenkins as a Service 
+  
+  
+Jenkins Questions: 
+During the pipelines, Does jenkins can create EC2 instance? 
+Yes, Add the CLI code 
+======================================
+Ansible: Agent less & Password less authentication (We don't need any agent to be installed on Remote Hosts)
+Configuration Management Tool 
+		To Manage lot of servers 
+
+Ansible Architecture: 
+	Ansible Server - Main Server 
+		Process - Add Remote Hosts information into Host Directory 
+				+ Create a Playbook by Including Modules or Plugins and apply these on All the Hosts 
+
+1. Launch 2 instances (Server - 1 - Ansible Controller, Server 2 - Ansible Remote)
+2. Login to Server 1 and Create a user (ansadmin), provide sudo permissions , Generate ssh key and copy into remote server 
+3. Before copying ssh key, create a user (ansadmin) for remote user and provide sudo permissions 
+ 
+ansadmin ALL=(ALL:ALL) NOPASSWD: ALL
+
+change the sshd_config file with pubkeyauth - yes
+passwordauth - yes
+
+Install Ansible in Controller Server 
+$ sudo apt update
+$ sudo apt install software-properties-common
+$ sudo add-apt-repository --yes --update ppa:ansible/ansible
+$ sudo apt install ansible
+
+ansible --version 
+ansible -m ping all (Ping to reach all the hosts added into Hosts file)
+	Response: Sucess (ping:pong)
+	If Fail Response: un reachedable
+	
+vi /etc/ansible/hosts
+	[Add Server Information into this file]
+
+ansible.cfg === Configuration file 
+	- This file include info about, default inventory files, remote temp directories, sudo usernames etc.., 
+ 
+ansible vault - For secret file/text access
+
+ansible -m ping all -i [Path of Host file] == Firstly check the inventry host file and try to ping to those 
+ansible -m ping [ServerName provided in host] -i host === Try to ping to the dev servers which are part of inventory host file 
+
+ansible -m setup dev-servers -i host ==== Gather all the information from the dev remote servers which are part of inventory host file 
+
+ansile -m copy -a "src=/filepath dest=/filepath" [servergroup] -i host -b === Copy files from src to dest from the dev remote servers which are part of inventory host file 
+
+ansible [groupname] -a "/bin/reboot" == restart the servers in the group 
+
+ansible -m apt -a "name=Packagenametoinstall state=present" dev-servers -i host -b == Install the package provided in the remote servers which are part of Inventory file 
+
+ansible -m apt -a "name=Packagenametoinstall state=absent" dev-servers -i host -b  	=== Remove the package provided in the remote servers which are part of Inventory file 
+  
+ansible -m user -a "name=mahesh state=present" dev-servers -i host -b === User will be created in the remote servers which are part of Inventory file 
+
+ansible -m user -a "name=mahesh state=absent" dev-servers -i host -b === User will be removed in the remote servers which are part of Inventory file 
+
+playbook extension .yml (yaml files)
+
+--- (To mention this is ansible playbook)
+- hosts: dev-servers
+  become: true
+  
+  tasks:
+  - name: install tree
+    apt: 
+	 name: tree
+	 state: present
+	 
+  - name: install nginx 
+	apt: 
+	 name: nginx 
+	 state: present
+
+ansible-playbook "name of playbook" --syntax-check -i host === To check if the playbook syntax is written right 
+
+ansible-playbook "name of playbook" -i host === To run the palybook 
+
+With Items: 
+--- 
+- hosts: dev-servers
+  become: true
+  
+  tasks:
+  - name: User Creatation 
+	user:
+	 name:"{{item}}"
+	 state: present
+	with_items: 
+	  - mahesh
+	  - surendra
+	  - srinu
+
+ansible galaxy/role default structue: 
+	roles 
+		common 	
+			tasks 
+			templates 
+			vars
+			handlers
+		webservers
+			tasks
+================================
+Docker:
+Containireization Tool 
+	curl https://get.docker.com | bash
+
+
+docker --version == To check version of Docker installed 
+docker --images == To see all installed base images 
+	image == Readable format of software or instance 
+docker pull "name of image" === Download the latest version of image from docker hub
+docker run itd -p 80:80 nginx --name=nginx
+	Any number of containers can be created from one image 
+	 
+docker ps -a  
+docker rmi -f "imageid" === Remove the image from local repo 
+
+Auto Scaling 
+	Vertical Scaling - the servers are resized depending on the requirement of the bandwidth, instances or processing power., without changing the total number of machines(VMs)
+	Horizontal Scaling - we need to add more machines or servers based on demand.In this type of scaling
+
+docker file - using this we can customize our images 
+	touch Dockerfile
+
+vi dockerfile
+FROM ubuntu:1604 --- Important command in dockerfile 
+ENV env = "develop"
+MAINTAINER Praveen 
+RUN apt-get update -y 
+RUN apt-get install nginx
+COPY ./file1 /tmp
+
+
+docker build . ---  docker runs, Based on the docker file added	
+docker build -t ubuntu-nginx . -- Adds a Tag to the image 
+
+EXPOSE 80/tcp
+
+ADD === Web based URL 
+COPY === Move Local files from local/image to image 
+
+
+
+
+
+
+
+
+		
+	
