@@ -952,8 +952,14 @@ ADD === Web based URL
 COPY === Move Local files from local/image to image 
 
 
+Terraform: 
+sudo apt-get update -y
+sudo apt-get install wget unzip -y
+sudo wget https://releases.hashicorp.com/terraform/0.12.18/terraform_0.12.18_linux_amd64.zip
+sudo unzip terraform_0.12.18_linux_amd64.zip
+sudo mv terraform /usr/local/bin/
 
-
+Setup AWS user as programmable user and Configure the Terraform to run as same user
 
 
 
