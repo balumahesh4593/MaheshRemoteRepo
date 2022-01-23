@@ -965,7 +965,36 @@ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip
 unzip awscliv2.zip
 sudo ./aws/install
 
+Sample Terraform Script: 
+provider "aws"{
+profile="terraform_user"
+access_key="AKIARYY5BQVX6DLRCDCE"
+secret_key="l1BauVKbtmXr4XB7RiArCST4xTnAmVd/TQbnpZVl"
+region="us-east-2"
+}
 
+resource "aws_instance" "example"{
+ami="ami-001089eb624938d9f"
+tags={
+Name="Linux_Instance"
+}
+instance_type="t2.micro"
+key_name="Linux_KeyPair"
+security_groups=["${aws_security_group.allow_ssh.name}"]
+}
+
+resource "aws_security_group" "allow_ssh"{
+name="allow_ssh"
+description="allow ssh traffic"
+
+ingress{
+from_port=22 # by default, the linux server listents to TCP port 22 for ssh connection 
+to_port=22
+protocol="tcp"
+
+cidr_blocks=["0.0.0.0/0"]
+}
+}
 
 		
 	
