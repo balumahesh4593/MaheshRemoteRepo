@@ -960,7 +960,10 @@ sudo unzip terraform_0.12.18_linux_amd64.zip
 sudo mv terraform /usr/local/bin/
 
 Setup AWS user as programmable user and Configure the Terraform to run as same user
-
+To Setup AWS CLI: 
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
 
 
 
